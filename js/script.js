@@ -3,41 +3,46 @@ var listaCognomi = ["Bianchi", "Rossi", "Duzioni", "Balsano", "Verdi"];
 
 console.log(listaCognomi);
 
-
-
-// stampo la lista ordinata per cognome
+// creo bottone variabile
 var button = document.getElementById('check-button');
+
+//collego event click a button
 button.addEventListener("click" , 
+    function () {
+        // chiedo all'utente il cognome
+        var askName = document.getElementById('ask-name');
 
-function () {
-    // chiedo all'utente il cognome
-    var askName = document.getElementById('ask-name');
+        console.log("Il nome inserito è: ", askName.value);
 
-    console.log("Il nome inserito è: ", askName.value);
+        // pusho il cognome inserito dall'utente nell' array
+        listaCognomi.push(askName.value);
+        console.log(listaCognomi);
 
-    // pusho il cognome inserito dall'utente nell' array
-    listaCognomi.push(askName.value);
-    console.log(listaCognomi);
+        //ordino e stampo lista ordinata in log
+        listaCognomi.sort();
+        console.log("Lista ordinata: ", listaCognomi);
 
-    //stampo posizione lista ordinata
-    listaCognomi.sort();
-    console.log("Lista ordinata: ", listaCognomi);
+        //variabile per loop lista nomi
+        var testostampato = "";
 
-    document.getElementById("lista").innerHTML = "La lista dei cognomi è: " + "<br>" + listaCognomi;
+        //ciclo per traversare nomi lista
+        for (var i = 0; i < listaCognomi.length; i++) {
 
-    
-    
-    // stampo posizione lista
-    var positionList = listaCognomi.indexOf(askName.value);
-    console.log("La tua posizione è la numero: " , positionList + 1);
+            console.log(listaCognomi[i]);
 
-    document.getElementById('position').innerHTML ="posizione numero: " + (positionList + 1); 
+            testostampato = testostampato + "<li>" + listaCognomi[i] + "</li>";
+        }
 
+        //stampo lista in <li>
+        document.getElementById("lista").innerHTML = testostampato;
 
+        console.log(testostampato);
+        
+        // stampo posizione lista
+        var positionList = listaCognomi.indexOf(askName.value);
+        console.log("La tua posizione è la numero: " , positionList + 1);
 
-
-
-
+        document.getElementById('position').innerHTML ="posizione numero: " + (positionList + 1); 
 
     }
 
