@@ -14,6 +14,9 @@ button.addEventListener("click" ,
         
         console.log("Il nome inserito è: ", askName.value);
 
+        //verifico nome inserito dall'utente che abbia iniziale maiusc e non sia vuoto
+        if (askName.value.charAt(0) === askName.value.charAt(0).toUpperCase() && askName.value !== "") {
+
         // pusho il cognome inserito dall'utente nell' array
         listaCognomi.push(askName.value);
         console.log(listaCognomi);
@@ -77,6 +80,10 @@ button.addEventListener("click" ,
 
         document.getElementById('position').innerHTML = "posizione numero: " + (positionList + 1);
     }
-    
 
+    else {
+            alert("Attenzione inserisci il nome utente con la prima lettera Maiuscola");
+    }
+    
+   }
 )
